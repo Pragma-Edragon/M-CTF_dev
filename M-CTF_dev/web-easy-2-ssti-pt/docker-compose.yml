@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  web-easy-2:
+    image: gcr.io/docker-swarm-281107/web-easy-2:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+    deploy:
+      labels:
+        - traefik.http.routers.web-easy-2.rule=Host(`web-library.mctf.online`)
+        - traefik.http.services.web-easy-2.loadbalancer.server.port=10001
+        - traefik.docker.network=traefik
+    networks:
+      - traefik
+    restart: always
+    environment:
+      FLAG: MCTF{IS_IT_NOT_SO_SECURE_?}
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://127.0.0.1:10001/" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+
+networks:
+  traefik:
+    external:
+      name: traefik
+

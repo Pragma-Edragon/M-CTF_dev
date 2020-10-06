@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Most secure</title>
+    <link rel="stylesheet" href="../static/css/index_page.css">
+    <link rel="stylesheet" href="../static/css/animate.css">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+                <div class="logo">
+                    <a href="#">WSGI</a>
+                </div>
+                <div id="mainListDiv" class="main_list">
+                    <ul class="navlinks">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <span class="navTrigger">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </div>
+    </nav>
+        <div class="container_box">
+          <div class="home_vid">
+            <video src="../static/video/mctf_op.E09a2.webm" autoplay loop muted></video>
+          </div>
+          <div class="line wow fadeIn">What is this?</div>
+          <div class="container_data">
+            <p>This page provides all the information you need to get acquainted with the basic concepts of web development.
+              I hope you learn something useful for yourself too! We are
+              looking forward to your feedback and suggestions.
+              And by the way, to completely understand what exactly you are doing, we decided to track your IP. 
+	      Here it is: %s</p>
+          <div class="line wow fadeIn">Our Stack</div>
+          <div>
+          <div class="img_container">
+            <div class="flimgcnt wow fadeInRight">
+              <div class="sometext">Why python? It seemed to us that the most secure application that we can write,
+                we can make using python. Plus, it's a flexible language.
+                For the most part, this is why we were inclined to use it.</div>
+            <img src="../static/images/python.png"
+            alt="flimgcnt" class="img" width="200px" height="200px">
+            </div>
+            <div class="flimgcnt wow fadeInLeft">
+              <img src="../static/images/js.png"
+              alt="flimgcnt" class="img" width="200px" height="200px">
+            <div class="sometext">Well, it could not do without a million lines of CSS.
+              JS is used to develop traditional web sites and back-end API services, but was designed with real-time, push-based architectures in mind.
+	      CSS combined with JS is overpowered. But, as we all know - Zombular is much better</div>
+            </div>
+            <div class="flimgcnt wow fadeInRight">
+            <div class="sometext">But as everyone knows, HyperText Markup Language is the big thing.
+              Without HTML, a browser would not know how to display text as elements or load images or other details. HTML also provides a basic structure of the page,
+              upon which Cascading Style Sheets are overlaid to change its appearance. One could think of HTML as the
+              bones (structure) of a web page, and CSS as its skin (appearance).
+            </div>
+            <img src="../static/images/html.png"
+            alt="flimgcnt" class="img" width="190px" height="190px">
+            </div>
+          </div>
+          </div>
+        </div>
+        </div>
+  <div class="footer">
+  <div class="contain">
+  <div class="col">
+    <div class="comp_logo">
+          <h1>WSGI</h1>
+          <div class="footer_text">
+            Better than nothing.
+          </div>
+          <div class="footer_text_lower">
+            © 2020 M*CTF, BinaryBears - r1v3n
+          </div>
+    </div>
+  </div>
+  <div class="col">
+    <h1>Accounts</h1>
+    <ul>
+      <li>About</li>
+      <li>Mission</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h1>Resources</h1>
+    <ul>
+      <li>Webmail</li>
+      <li>Redeem code</li>
+    </ul>
+  </div>
+  <div class="col">
+    <h1>Support</h1>
+    <ul>
+      <li>Contact us</li>
+      <li>Web chat</li>
+    </ul>
+  </div>
+  <div class="col social">
+    <h1>Social</h1>
+    <ul>
+      <li><img src="../static/images/twitter.png" width="32" style="width: 32px;"></li>
+      <li><img src="../static/images/telegram.png" width="32" style="width: 32px;"></li>
+      <li><img src="../static/images/youtube.png" width="32" style="width: 32px;"></li>
+    </ul>
+  </div>
+<div class="clearfix"></div>
+</div>
+</div>
+<!-- END OF FOOTER -->
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="../static/js/index_page.js"></script>
+        <script src="../static/js/wow.min.js"></script>
+    <!-- Function used to shrink nav bar removing paddings and adding black background -->
+        <script>
+            $(window).scroll(function() {
+                if ($(document).scrollTop() > 50) {
+                    $('.nav').addClass('affix');
+                    console.log("OK");
+                } else {
+                    $('.nav').removeClass('affix');
+                }
+            });
+        </script>
+        <script>
+                 new WOW().init();
+        </script>
+  </body>
+</html>
