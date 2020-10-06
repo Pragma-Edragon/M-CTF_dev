@@ -1,0 +1,23 @@
+image: tiangolo/docker-with-compose
+
+stages:
+  - build
+  - deploy
+
+build-prod:
+  stage: build
+  script:
+    - env
+    - cat "$SERVICE_KEY" | docker login -u _json_key --password-stdin https://gcr.io
+    - docker-compose build
+    - docker-compose push
+  only:
+    - master
+
+deploy-prod:
+  stage: deploy
+  script:
+    - cat "$SERVICE_KEY" | docker login -u _json_key --password-stdin https://gcr.io
+    - docker stack deploy -c docker-compose.yml --with-registry-auth deploy
+  only:
+    - master

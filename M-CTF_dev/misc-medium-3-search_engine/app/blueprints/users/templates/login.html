@@ -1,0 +1,16 @@
+{% extends "usersBase.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block page %}
+    Sign In
+{% endblock %}
+
+{% block forms %}
+    {{ form.username(size=32, placeholder="Username") }}
+    {{ form.password(size=32, placeholder="Password") }}
+    {{ form.submit() }}
+    <p class="options">Yet not Registered? <a href="register">Sign up!</a></p>
+{% endblock %}

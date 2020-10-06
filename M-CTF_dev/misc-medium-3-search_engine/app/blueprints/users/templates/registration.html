@@ -1,0 +1,17 @@
+{% extends "usersBase.html" %}
+
+{% block title %}
+    Registration
+{% endblock %}
+
+{% block page %}
+    Sign Up
+{% endblock %}
+
+{% block forms %}
+    {{ form.username(size=32, placeholder="Username") }}
+    {{ form.password(size=32, placeholder="Password") }}
+    {{ form.copy_password(size=32, placeholder="CopyPassword")}}
+    {{ form.submit() }}
+    <p class="options">Already Registered? <a href="login">Sign in!</a></p>
+{% endblock %}

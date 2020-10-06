@@ -1,0 +1,8 @@
+.logs
+.postgres
+.idea
+**/.gitignore
+.git
+**/__pycache__
+**/*.pyc
+**/*.mo

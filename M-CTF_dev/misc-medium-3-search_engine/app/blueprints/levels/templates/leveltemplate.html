@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p> {{ leveldata }}</p>
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.answer.label }}<br>
+        {{ form.answer(size=32) }}
+    </p>
+    <p>
+        {{ form.submit() }}
+    </p>
+</form>
+<ul>
+    {% if form.answer.errors %}
+    {% for errors in form.answer.errors %}
+        <li> {{ errors }}</li>
+    {% endfor %}
+    {% endif %}
+</ul>
+{% endblock %}

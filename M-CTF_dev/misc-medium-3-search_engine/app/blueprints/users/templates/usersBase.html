@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title%}{% endblock %}</title>
+		<link rel="stylesheet" href="../../../static/css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+	</head>
+	<body>
+		<!--form area start-->
+		<div class="form">
+			<!--login form start-->
+			<form class="login-form" action="" method="post">
+                {{ form.hidden_tag() }}
+				<h2>{% block page%}{% endblock %}</h2>
+				<div class="icons">
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-google"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+				</div>
+                {% block forms%}{% endblock %}
+			</form>
+			<!--login form end-->
+                <ul>
+    {% if form.password.errors  %}
+        {% for errors in form.password.errors %}
+            <li>{{ errors }}</li>
+        {% endfor %}
+    {% endif %}
+        {% if error %}
+            <li> {{ error }}</li>
+        {% endif %}
+    </ul>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+		</div>
+		<!--form area end-->
+	</body>
+</html>

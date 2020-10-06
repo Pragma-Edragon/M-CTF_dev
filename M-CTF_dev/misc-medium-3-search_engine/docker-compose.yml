@@ -1,0 +1,47 @@
+version: "3.7"
+
+services:
+  misc-6-medium:
+    image: gcr.io/docker-swarm-281107/misc-6-medium:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+    restart: always
+    deploy:
+      labels:
+        - traefik.http.routers.misc-6-medium.rule=Host(`search-engine.mctf.online`)
+        - traefik.http.services.misc-6-medium.loadbalancer.server.port=1337
+        - traefik.docker.network=traefik
+    networks:
+      - traefik
+      - local
+  
+    healthcheck:
+      test: [ "CMD-SHELL", "curl --fail http://127.0.0.1:1337/login" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+  misc-6-medium-db:
+    container_name: misc-6-medium-db
+    image: postgres:12.4
+    environment:
+      POSTGRES_DB: mctf2020
+      POSTGRES_USER: mctf2020
+      POSTGRES_PASSWORD: mctf2020
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U mctf2020"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - local
+
+networks:
+  traefik:
+    external:
+      name: traefik
+  local:
+
